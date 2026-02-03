@@ -21,6 +21,7 @@ public class ArgentManager : MonoBehaviour
     {
         playerMoney += amountGiven;
         affichageEcran.UpdateMoney();
+        affichageEcran.UpdateScore(amountGiven);
 
         return playerMoney;
     }

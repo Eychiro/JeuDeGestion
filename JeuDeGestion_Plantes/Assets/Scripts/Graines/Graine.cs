@@ -7,7 +7,7 @@ public class Graine : MonoBehaviour
     [Header("Paramètres de la Graine")]
     public GameObject prefabPlante;
     public int prixAchat = 10;
-    public float tempsDePousse = 5.0f;
+    //public float tempsDePousse = 5.0f;
     public int quantiteDetenue = 0;
 
     [Header("Références UI")]

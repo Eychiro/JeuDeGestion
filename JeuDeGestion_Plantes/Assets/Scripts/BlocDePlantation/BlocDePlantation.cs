@@ -21,8 +21,10 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
 
         if (GraineManager.Instance.RetirerGraineSelectionnee(1))
         {
+            float angleY = Random.Range(0f, 360f);
+            Quaternion randomRotationY = Quaternion.Euler(0f, angleY, 0f);
 
-            GameObject nouvellePlante = Instantiate(graineChoisie.prefabPlante, pointApparition.position, Quaternion.identity, transform);
+            GameObject nouvellePlante = Instantiate(graineChoisie.prefabPlante, pointApparition.position, randomRotationY, transform);
             Plante scriptPlante = nouvellePlante.GetComponent<Plante>();
             
             if (scriptPlante != null)

@@ -5,10 +5,12 @@ public class AffichageEcran : MonoBehaviour
 {
     public TextMeshProUGUI goldAmount;
     [SerializeField] public TextMeshProUGUI timerTimeText;
+    [SerializeField] public TextMeshProUGUI scoreText;
 
     private  ArgentManager argentManager;
     
     private RunPartieManager runPartieManager;
+    private int totalScore = 0;
 
     void Awake()
     {
@@ -21,6 +23,12 @@ public class AffichageEcran : MonoBehaviour
     public void UpdateMoney()
     {
         goldAmount.text = argentManager.playerMoney.ToString();
+    }
+
+    public void UpdateScore(int amountGiven)
+    {
+        totalScore += amountGiven;
+        scoreText.text = "Score : " + totalScore.ToString();
     }
 
     public void UpdateTimer()
