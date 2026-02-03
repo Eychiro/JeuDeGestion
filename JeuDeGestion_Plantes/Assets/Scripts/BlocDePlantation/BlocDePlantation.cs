@@ -1,0 +1,41 @@
+using UnityEngine;
+
+public class BlocDePlantation : MonoBehaviour, IInteractible
+{
+    public ArgentManager argentManager;
+    public AffichageEcran affichageEcran;
+
+    [Header("Paramètres de Plantation")]
+    public Transform pointApparition;
+    [HideInInspector] public bool estOccupe = false;
+
+    public void PlanterGraine()
+    {
+        if (estOccupe) 
+        {
+            Debug.Log("Il y a déjà quelque chose ici !");
+            return;
+        }
+
+        Graine graineChoisie = GraineManager.Instance.hotbar.GetSelectedSlot();
+
+        if (GraineManager.Instance.RetirerGraineSelectionnee(1))
+        {
+
+            GameObject nouvellePlante = Instantiate(graineChoisie.prefabPlante, pointApparition.position, Quaternion.identity, transform);
+            Plante scriptPlante = nouvellePlante.GetComponent<Plante>();
+            
+            if (scriptPlante != null)
+            {            
+                scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation();
+                scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation();
+            }
+            estOccupe = true;
+        }
+    }
+
+    public void Interact() 
+    { 
+        PlanterGraine();
+    }
+}

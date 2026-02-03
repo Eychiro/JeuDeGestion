@@ -16,9 +16,7 @@ public class CameraController : MonoBehaviour
     private Vector2 inputRotation;
 
     void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        
+    {        
         rotationY = transform.localRotation.eulerAngles.y;
         rotationX = playerCamera.localRotation.eulerAngles.x;
     }
@@ -32,6 +30,9 @@ public class CameraController : MonoBehaviour
     {
         if (cameraLocked)
             return;
+
+        if (BoutiqueDeGraines.IsShopOpen) 
+            return; 
 
         rotationX -= inputRotation.y * (cameraSensitivity / 10);
         rotationY += inputRotation.x * (cameraSensitivity / 10);

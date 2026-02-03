@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         
         _groundlayerMask = LayerMask.GetMask("Ground");
-
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -51,6 +49,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (BoutiqueDeGraines.IsShopOpen)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            return;
+        }
+
         MovePlayer();
 
         isGrounded = Physics.Raycast(groundCheck.position, Vector3.down, 0.05f, _groundlayerMask);
