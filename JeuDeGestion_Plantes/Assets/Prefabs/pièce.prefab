@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   valeur: 10
+  sonRamassage: {fileID: 8300000, guid: def144aadae3e604f99b00875fed0436, type: 3}
 --- !u!65 &981238572757525723
 BoxCollider:
   m_ObjectHideFlags: 0

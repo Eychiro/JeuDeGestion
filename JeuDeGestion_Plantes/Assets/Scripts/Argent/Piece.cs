@@ -3,6 +3,7 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
     public int valeur;
+    public AudioClip sonRamassage;
 
     private float vitesseRotation = 100f;
 
@@ -11,6 +12,9 @@ public class Piece : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ArgentManager.Instance.GiveMoney(valeur);
+
+            AudioSource.PlayClipAtPoint(sonRamassage, transform.position);
+
             Destroy(gameObject);
         }
     }
