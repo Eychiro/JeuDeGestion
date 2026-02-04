@@ -7,7 +7,15 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
 
     [Header("Paramètres de Plantation")]
     public Transform pointApparition;
+
     [HideInInspector] public bool estOccupe = false;
+
+    private AudioSource sonPlantation;
+
+    void Start()
+    {
+        sonPlantation = GetComponent<AudioSource>();
+    }
 
     public void PlanterGraine()
     {
@@ -21,6 +29,9 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
 
         if (GraineManager.Instance.RetirerGraineSelectionnee(1))
         {
+            sonPlantation.pitch = Random.Range(0.9f, 1.1f);
+            sonPlantation.Play();
+
             float angleY = Random.Range(0f, 360f);
             Quaternion randomRotationY = Quaternion.Euler(0f, angleY, 0f);
 

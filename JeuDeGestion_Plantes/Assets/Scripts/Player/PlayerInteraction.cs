@@ -21,9 +21,13 @@ public class PlayerInteraction : MonoBehaviour
 
         Debug.DrawRay(rayOrigin, rayDirection * interactDistance, Color.green, 2f);
 
-        if (Physics.Raycast(rayOrigin, rayDirection, out hit, interactDistance))
+        // le "~" permet d'ignorer le layer en question, donc "Ignore Raycast"
+        int layerMaskToIgnore = ~LayerMask.GetMask("Ignore Raycast");
+
+        if (Physics.Raycast(rayOrigin, rayDirection, out hit, interactDistance, layerMaskToIgnore))
         {
-            // On cherche l'interface sur l'objet touché (ou son parent)
+            // On cherche l'interface sur l'objet touché (ou son parent
+            Debug.Log("J'ai touché : " + hit.collider.name);
             IInteractible interactible = hit.collider.GetComponentInParent<IInteractible>();
 
             if (interactible != null)

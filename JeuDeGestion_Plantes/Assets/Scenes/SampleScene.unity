@@ -2214,8 +2214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: 98f586618e527dd42b7eab89375c395f, type: 3}
-  prixAchat: 12
-  quantiteDetenue: 0
+  prixAchat: 20
+  quantiteDetenue: 3
   texteQuantite: {fileID: 1851704672}
   highlight: {fileID: 967405263}
   iconeGraine: {fileID: 615837415}
@@ -11696,8 +11696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: 4554b9469b1440348bec2c6d4fd4d8d6, type: 3}
-  prixAchat: 11
-  quantiteDetenue: 0
+  prixAchat: 20
+  quantiteDetenue: 3
   texteQuantite: {fileID: 2014786423}
   highlight: {fileID: 1088947947}
   iconeGraine: {fileID: 1135090623}
@@ -16292,8 +16292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: 6aa69d7ef6a6ba946983325c33acdc9e, type: 3}
-  prixAchat: 35
-  quantiteDetenue: 0
+  prixAchat: 20
+  quantiteDetenue: 3
   texteQuantite: {fileID: 165333362}
   highlight: {fileID: 1908450780}
   iconeGraine: {fileID: 998459855}
@@ -16540,7 +16540,7 @@ GameObject:
   - component: {fileID: 1131314055}
   - component: {fileID: 1131314056}
   - component: {fileID: 1131314057}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -17622,8 +17622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: 52e2a276e11a28c489b425c71b8e068f, type: 3}
-  prixAchat: 25
-  quantiteDetenue: 0
+  prixAchat: 20
+  quantiteDetenue: 3
   texteQuantite: {fileID: 1517917398}
   highlight: {fileID: 2015694061}
   iconeGraine: {fileID: 52066197}
@@ -20265,7 +20265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1387999367}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21527,7 +21527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: b070b129f77725f49ae80f1938c4e2e1, type: 3}
   prixAchat: 20
-  quantiteDetenue: 0
+  quantiteDetenue: 3
   texteQuantite: {fileID: 361752014}
   highlight: {fileID: 161688017}
   iconeGraine: {fileID: 1507163033}
@@ -24556,7 +24556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614703974}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24781,7 +24781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: f9925cb4599238d48af5507d459946ba, type: 3}
-  prixAchat: 10
+  prixAchat: 20
   quantiteDetenue: 3
   texteQuantite: {fileID: 308025408}
   highlight: {fileID: 193638299}
@@ -25276,8 +25276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: c29f18489a3fd4c4281c6c026c2a25bd, type: 3}
-  prixAchat: 30
-  quantiteDetenue: 0
+  prixAchat: 20
+  quantiteDetenue: 3
   texteQuantite: {fileID: 1560221852}
   highlight: {fileID: 399852953}
   iconeGraine: {fileID: 918138788}
@@ -28437,7 +28437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1870282908}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GrounCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29733,8 +29733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: 114a4e50e0f4b1547955117d14d470ad, type: 3}
-  prixAchat: 15
-  quantiteDetenue: 0
+  prixAchat: 20
+  quantiteDetenue: 3
   texteQuantite: {fileID: 1245785926}
   highlight: {fileID: 1700433032}
   iconeGraine: {fileID: 388056122}
@@ -30011,8 +30011,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graine
   prefabPlante: {fileID: 7488517476956754086, guid: 9bbf9d8b55976bf4e99ce7ea9d47e4ac, type: 3}
-  prixAchat: 40
-  quantiteDetenue: 0
+  prixAchat: 20
+  quantiteDetenue: 3
   texteQuantite: {fileID: 1075962646}
   highlight: {fileID: 1886918027}
   iconeGraine: {fileID: 559770261}
