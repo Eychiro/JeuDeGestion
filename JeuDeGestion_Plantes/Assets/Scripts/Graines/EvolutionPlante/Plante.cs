@@ -7,6 +7,7 @@ public class Plante : MonoBehaviour
     public GameObject[] etapesVisuelles;
 
     public GameObject prefabPiece;
+    private AudioSource sonGrowing;
     
     private int etapeActuelle = 0;
 
@@ -17,6 +18,8 @@ public class Plante : MonoBehaviour
     {
         ActualiserVisuel();
         StartCoroutine(Croissance());
+
+        sonGrowing = GetComponent<AudioSource>();
     }
 
     void SpawnGold()
@@ -64,6 +67,10 @@ public class Plante : MonoBehaviour
         {
             yield return new WaitForSeconds(tempsParEtape);
             etapeActuelle++;
+
+            sonGrowing.pitch = Random.Range(0.9f, 1.1f);
+            sonGrowing.Play();
+
             ActualiserVisuel();
         }
         
