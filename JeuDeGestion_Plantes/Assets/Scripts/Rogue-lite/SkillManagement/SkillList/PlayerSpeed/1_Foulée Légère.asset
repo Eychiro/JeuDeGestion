@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc74e1ffd7d6d24fa2f1ede1d3d3486, type: 3}
-  m_Name: 1_Marchandeur Novice
+  m_Name: "1_Foul\xE9e L\xE9g\xE8re"
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  nom: Marchandeur Novice
-  description: "Permet de r\xE9duire le prix des graines dans le magasin de 10%.\n(Se
-    cumule avec Pousse rapide)"
+  nom: "Foul\xE9e L\xE9g\xE8re"
+  description: Augmente la vitesse du personnage de 5%.
   prixGraines: 5
-  typeDeBonus: 3
-  valeurBonus: 1.1
+  typeDeBonus: 4
+  valeurBonus: 1.05
   skillRequis: {fileID: 0}
   estDebloquee: 0

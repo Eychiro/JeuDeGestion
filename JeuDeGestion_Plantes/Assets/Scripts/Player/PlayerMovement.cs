@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 10f;
+    public List<SkillData> skillBonus;
+
     public Transform groundCheck;
     public static bool canMove = true;
 
@@ -15,11 +18,26 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = true;
     private LayerMask _groundlayerMask;
 
+    private float bonusSpeed = 1f;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         
         _groundlayerMask = LayerMask.GetMask("Ground");
+    }
+
+    void Start()
+    {
+        foreach(SkillData skill in skillBonus)
+        {
+            if (skill.estDebloquee)
+            {
+                bonusSpeed += skill.valeurBonus - 1f;
+            }
+        }
+
+        movementSpeed *= bonusSpeed;
     }
 
     public void OnMove(InputAction.CallbackContext context)

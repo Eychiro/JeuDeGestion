@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: "2_Marchandeur Interm\xE9diaire"
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: "Marchandeur Interm\xE9diaire"
-  description: "Permet de r\xE9duire le prix des graines dans le magasin de 10%."
+  description: "Permet de r\xE9duire le prix des graines dans le magasin de 10%.\n(Se
+    cumule avec Pousse rapide)"
   prixGraines: 8
   typeDeBonus: 3
   valeurBonus: 1.1

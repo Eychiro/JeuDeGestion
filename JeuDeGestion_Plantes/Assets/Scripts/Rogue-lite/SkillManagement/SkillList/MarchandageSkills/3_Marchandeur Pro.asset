@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 3_Marchandeur Pro
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Marchandeur Pro
-  description: "Permet de r\xE9duire le prix des graines dans le magasin de 10%."
+  description: "Permet de r\xE9duire le prix des graines dans le magasin de 10%.\n(Se
+    cumule avec Pousse rapide)"
   prixGraines: 12
   typeDeBonus: 3
   valeurBonus: 1.1

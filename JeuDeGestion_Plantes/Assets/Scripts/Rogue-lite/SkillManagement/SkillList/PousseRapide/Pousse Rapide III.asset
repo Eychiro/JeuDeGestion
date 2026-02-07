@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Pousse Rapide III
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Pousse Rapide III
-  description: "R\xE9duit le temps de pousse de toutes les plantes de 5 secondes."
+  description: "R\xE9duit le temps de pousse de toutes les plantes de 2 secondes.\n(Se
+    cumule avec Marchandage)"
   prixGraines: 15
   typeDeBonus: 1
-  valeurBonus: 5
+  valeurBonus: 2
   skillRequis: {fileID: 11400000, guid: beacee86508e71a448aa16ea32b2434c, type: 2}
   estDebloquee: 0
