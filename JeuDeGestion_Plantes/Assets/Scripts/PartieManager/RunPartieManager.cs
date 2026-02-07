@@ -6,11 +6,25 @@ public class RunPartieManager : MonoBehaviour
 {
     public float remainingGameTime;
     public GameObject MenuEndPartie;
+    public BoutiqueDeGraines boutiqueDeGraines;
+    public GameObject hotBar;
 
     private void EndActualGame()
-    {   // Afficher menu (un seul bouton revenir au menu principal) avec score total de la partie au milieu de l'écran
+    {
+        if (BoutiqueDeGraines.IsShopOpen)
+            boutiqueDeGraines.LeaveShop();
+
+        if (boutiqueDeGraines.interactionCollider.isActiveAndEnabled)
+            boutiqueDeGraines.interactionCollider.parler.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        PlayerMovement.canMove = false;
+
+        hotBar.SetActive(false);        
         MenuEndPartie.SetActive(true);
-        
+
+        AffichageEcran.instance.DisplayFinalScoreAndGrainesMagiques();
     }
 
     void Update()

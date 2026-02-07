@@ -2,6 +2,9 @@ using System;
 using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
@@ -14,7 +17,12 @@ public class MenuManager : MonoBehaviour
     public GameObject MainMenu;
     public GameObject cameraMainMenu;
     public bool skipMainMenu = false;
+    public TextMeshProUGUI grainesMagiquesMenuPrincipalTxt;
+    public GameObject grainesMagiques;
 
+    [Header("SkillTreeMenu")]
+    public GameObject skillTreeMenu;
+    
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1.0f;
     
@@ -59,6 +67,7 @@ public class MenuManager : MonoBehaviour
         
         cameraMainMenu.SetActive(false);
         MainMenu.SetActive(false);
+        grainesMagiques.SetActive(false);
 
         player.SetActive(true);
         cameraPlayer.SetActive(true);
@@ -77,12 +86,30 @@ public class MenuManager : MonoBehaviour
 
     public void SkillTreeButton()
     {
-        
+        MainMenu.SetActive(false);
+        skillTreeMenu.SetActive(true);
+    }
+
+    public void RetourSkillTreeMenuButton()
+    {
+        skillTreeMenu.SetActive(false);
+        MainMenu.SetActive(true);
     }
 
     public void QuitterButton()
     {
         Application.Quit();
+    }
+
+    public void RetourMainMenu()
+    {
+        string sceneActuelle = SceneManager.GetActiveScene().name;
+        
+        PlayerMovement.canMove = true;
+
+        AffichageEcran.instance.GetTotalGrainesMagiques();
+
+        SceneManager.LoadScene(sceneActuelle);
     }
 
     void Start()
@@ -91,15 +118,28 @@ public class MenuManager : MonoBehaviour
         {
             StartCoroutine(LaunchGameFade(1, 0));
             ShowMenu();
+
+            grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
         }
         else
         {
             fadeImage.gameObject.SetActive(false);
             cameraMainMenu.SetActive(false);
             MainMenu.SetActive(false);
+            grainesMagiques.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
             donneesPlayer.SetActive(true);
         }
+    }
+
+    void Update()
+    {
+        if (Keyboard.current.yKey.wasPressedThisFrame)
+        {
+            AffichageEcran.grainesMagiquesTotalesInstance += 10;
+            grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
+        }
+
     }
 }

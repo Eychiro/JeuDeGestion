@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (cameraLocked)
+        if (!PlayerMovement.canMove)
             return;
 
         if (BoutiqueDeGraines.IsShopOpen) 

@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 10f;
     public Transform groundCheck;
+    public static bool canMove = true;
 
     [SerializeField] private Transform Orientation;
     private Rigidbody rb;
@@ -34,22 +35,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer()
     {
-        // On calcule la direction souhaitée
         Vector3 targetMove = (Orientation.forward * inputMovement.y) + (Orientation.right * inputMovement.x);
-        
-        // On multiplie par la vitesse
         Vector3 velocity = targetMove * movementSpeed;
 
-        // IMPORTANT : On conserve la vitesse verticale actuelle (gravité/saut)
         velocity.y = rb.linearVelocity.y;
-
-        // On applique le tout au Rigidbody
         rb.linearVelocity = velocity;
     }
 
     void FixedUpdate()
     {
-        if (BoutiqueDeGraines.IsShopOpen)
+        if (BoutiqueDeGraines.IsShopOpen || !canMove)
         {
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
