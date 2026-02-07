@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.Rendering;
 
 public class InfoPanelManager : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class InfoPanelManager : MonoBehaviour
     public TextMeshProUGUI prixTxt;
     public Button boutonAchat;
 
+    public TextMeshProUGUI grainesMagiquesMenuPrincipalTxt;
+
     private SkillData skillActuel;
+    private GameObject checkBoxActuelle;
 
     void Awake() => instance = this;
 
@@ -21,26 +25,42 @@ public class InfoPanelManager : MonoBehaviour
         skillActuel = data;
         
         nomTxt.text = data.nom;
-        descTxt.text = data.description; // Ajoute cette variable dans ton ScriptableObject !
+        descTxt.text = data.description;
         prixTxt.text = "Coût : " + data.prixGraines;
 
-        // On affiche le panneau s'il était caché
         gameObject.SetActive(true);
 
-        // On met à jour l'état du bouton d'achat (si déjà acheté ou trop cher)
         ActualiserBoutonAchat();
+    }
+
+    public void SetActiveCheckBox(GameObject checkedBox)
+    {
+        checkBoxActuelle = checkedBox;
     }
 
     public void ActualiserBoutonAchat()
     {
+        bool aLePrerequis = skillActuel.skillRequis == null || skillActuel.skillRequis.estDebloquee;
+        bool aAssezDargent = AffichageEcran.grainesMagiquesTotalesInstance >= skillActuel.prixGraines;
+
         if (skillActuel.estDebloquee)
         {
             boutonAchat.interactable = false;
+            prixTxt.fontSize = 36;
             prixTxt.text = "Débloqué !";
+            checkBoxActuelle.SetActive(true);
+        }
+        else if (!aLePrerequis)
+        {
+            boutonAchat.interactable = false;
+            prixTxt.fontSize = 20;
+            prixTxt.text = "(Niveau précédent requis)";
         }
         else
         {
-            boutonAchat.interactable = (AffichageEcran.grainesMagiquesTotalesInstance >= skillActuel.prixGraines);
+            boutonAchat.interactable = aAssezDargent;
+            prixTxt.fontSize = 36;
+            prixTxt.text = "Coût : " + skillActuel.prixGraines;
         }
     }
 
@@ -51,9 +71,8 @@ public class InfoPanelManager : MonoBehaviour
             AffichageEcran.grainesMagiquesTotalesInstance -= skillActuel.prixGraines;
             skillActuel.estDebloquee = true;
             
-            // On rafraîchit l'UI
             ActualiserBoutonAchat();
-            //AffichageEcran.instance.DisplayTotalGrainesMagiques(); 
+            grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString(); 
         }
     }
 }

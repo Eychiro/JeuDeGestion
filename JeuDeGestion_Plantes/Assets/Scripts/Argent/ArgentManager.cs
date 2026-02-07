@@ -5,7 +5,7 @@ public class ArgentManager : MonoBehaviour
 {
     public static ArgentManager Instance;
     public int playerMoney = 50;
-    public List<SkillData> SkillBoost;
+    public List<SkillData> skillBoost;
 
     private AffichageEcran affichageEcran;
     private float multiplicateurBonus = 1f;
@@ -22,11 +22,11 @@ public class ArgentManager : MonoBehaviour
 
     void Start()
     {
-        foreach (SkillData skill in SkillBoost)
+        foreach (SkillData skill in skillBoost)
         {
             if (skill.estDebloquee)
             {
-                multiplicateurBonus += skill.multiplicateurArgent - 1f;
+                multiplicateurBonus += skill.valeurBonus - 1f;
             }
         }
     }
@@ -38,7 +38,7 @@ public class ArgentManager : MonoBehaviour
         playerMoney += montantFinal;
 
         affichageEcran.UpdateMoney();
-        affichageEcran.UpdateScore(amountGiven);
+        affichageEcran.UpdateScore(montantFinal);
 
         return playerMoney;
     }

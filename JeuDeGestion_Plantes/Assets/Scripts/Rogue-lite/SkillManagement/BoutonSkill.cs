@@ -3,16 +3,15 @@ using UnityEngine.UI;
 
 public class BoutonSkill : MonoBehaviour
 {
-    public SkillData donneeDeCeSkill; // On glisse ici le fichier créé à l'étape 2
-    public Image iconeBouton;
+    public SkillData donneeDeCeSkill;
+    public GameObject checkedBox;
 
     [SerializeField] private GameObject overlayFermeture;
 
     void Start()
     {
-        // On affiche l'image définie dans le SkillData sur le bouton
-        if (donneeDeCeSkill.icone != null)
-            iconeBouton.sprite = donneeDeCeSkill.icone;
+        if (donneeDeCeSkill.estDebloquee)
+            checkedBox.SetActive(true);
 
         InfoPanelManager.instance.gameObject.SetActive(false);
     }
@@ -20,7 +19,9 @@ public class BoutonSkill : MonoBehaviour
     public void AuClicDuBouton()
     {
         InfoPanelManager.instance.gameObject.SetActive(true);
-        overlayFermeture.SetActive(true); // On affiche le bloqueur de clic
+        overlayFermeture.SetActive(true);
+        InfoPanelManager.instance.SetActiveCheckBox(checkedBox);
         InfoPanelManager.instance.AfficherDetails(donneeDeCeSkill);
+        
     }
 }

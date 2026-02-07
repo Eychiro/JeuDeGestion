@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc74e1ffd7d6d24fa2f1ede1d3d3486, type: 3}
-  m_Name: Bonus d'argent II
+  m_Name: "2_Temps suppl\xE9mentaire II"
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  nom: Bonus d'argent I
-  description: Permet d'augmenter le gain d'argent.
-  prixGraines: 2
-  icone: {fileID: 0}
+  nom: "Temps suppl\xE9mentaire II"
+  description: Augmente le temps total de la partie de 10 secondes.
+  prixGraines: 10
+  typeDeBonus: 2
+  valeurBonus: 10
+  skillRequis: {fileID: 11400000, guid: 12a9f72c2844249488d6412705caae29, type: 2}
   estDebloquee: 0
-  multiplicateurArgent: 1.2
-  reductionTempsDePousse: 0

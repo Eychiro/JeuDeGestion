@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc74e1ffd7d6d24fa2f1ede1d3d3486, type: 3}
-  m_Name: Bonus d'argent I
+  m_Name: Bonus d'argent II
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  nom: Bonus d'argent I
-  description: Permet d'augmenter le gain d'argent.
-  prixGraines: 5
-  icone: {fileID: 0}
+  nom: Bonus d'argent II
+  description: Permet d'augmenter le gain d'argent de 20%.
+  prixGraines: 8
+  typeDeBonus: 0
+  valeurBonus: 1.2
+  skillRequis: {fileID: 11400000, guid: 58f022c4a7e48a24d9df00b9dff01e5f, type: 2}
   estDebloquee: 0
-  multiplicateurArgent: 1.2
-  reductionTempsDePousse: 0

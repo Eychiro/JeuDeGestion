@@ -1,13 +1,13 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Graine : MonoBehaviour
 {
     [Header("Paramètres de la Graine")]
     public GameObject prefabPlante;
     public int prixAchat = 10;
-    //public float tempsDePousse = 5.0f;
     public int quantiteDetenue = 0;
 
     [Header("Références UI")]
@@ -15,17 +15,30 @@ public class Graine : MonoBehaviour
     public GameObject highlight;
     public Image iconeGraine;
 
+    public List<SkillData> skillBoost;
+
     private Color baseColor;
+    private float discountMultiplierBonus = 1f;
 
     void Start()
     {
         baseColor = texteQuantite.color;
         UpdateSlotUI();
+
+        foreach(SkillData skill in skillBoost)
+        {
+            if (skill.estDebloquee)
+            {
+                discountMultiplierBonus -= skill.valeurBonus - 1;
+            }
+        }
+
+        prixAchat = Mathf.RoundToInt(prixAchat * discountMultiplierBonus);
     }
 
     public float CalculerTempsMaturation()
     {
-        return prixAchat * 0.5f;
+        return (prixAchat * 0.5f);
     }
 
     public int CalculerGainFinMaturation()

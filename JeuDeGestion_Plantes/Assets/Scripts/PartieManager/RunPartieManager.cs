@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using JetBrains.Annotations;
+using System.Collections.Generic;
 
 public class RunPartieManager : MonoBehaviour
 {
@@ -8,6 +9,22 @@ public class RunPartieManager : MonoBehaviour
     public GameObject MenuEndPartie;
     public BoutiqueDeGraines boutiqueDeGraines;
     public GameObject hotBar;
+    public List<SkillData> skillBoost;
+
+    private float bonusSkill = 0;
+
+    void Start()
+    {
+        foreach (SkillData skill in skillBoost)
+        {
+            if (skill.estDebloquee)
+            {
+                bonusSkill += skill.valeurBonus;
+            }
+        }
+
+        remainingGameTime += bonusSkill;
+    }
 
     private void EndActualGame()
     {
