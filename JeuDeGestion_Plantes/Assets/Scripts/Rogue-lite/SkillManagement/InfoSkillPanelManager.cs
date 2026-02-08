@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEditor.Rendering;
+using DG.Tweening;
+
 
 public class InfoPanelManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class InfoPanelManager : MonoBehaviour
     public TextMeshProUGUI descTxt;
     public TextMeshProUGUI prixTxt;
     public Button boutonAchat;
+    public GameObject infoSupButton;
+    public GameObject infoSupTxt;
 
     public TextMeshProUGUI grainesMagiquesMenuPrincipalTxt;
 
@@ -33,6 +36,25 @@ public class InfoPanelManager : MonoBehaviour
         ActualiserBoutonAchat();
     }
 
+    public void ToggleInfoSupp()
+    {
+        infoSupTxt.transform.DOKill();
+
+        if (!infoSupTxt.activeSelf)
+        {
+            infoSupTxt.transform.localScale = Vector3.zero;
+            infoSupTxt.SetActive(true);
+
+            infoSupTxt.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
+        }
+        else
+        {
+            infoSupTxt.transform.DOScale(0f, 0.2f).SetEase(Ease.InBack).OnComplete(() => {
+                infoSupTxt.SetActive(false);
+            });
+        }
+    }
+    
     public void SetActiveCheckBox(GameObject checkedBox)
     {
         checkBoxActuelle = checkedBox;
