@@ -17,9 +17,10 @@ public class AffichageEcran : MonoBehaviour
     public static AffichageEcran instance;
     public static int grainesMagiquesTotalesInstance;
 
+
     private  ArgentManager argentManager;
-    
     private RunPartieManager runPartieManager;
+
     private int totalScore = 0;
     private int totalGrainesMagiques = 0;
 
@@ -53,6 +54,17 @@ public class AffichageEcran : MonoBehaviour
         grainesMagiquesTotalesInstance += totalGrainesMagiques;
     }
 
+    public static void SauvegarderGraines()
+    {
+        PlayerPrefs.SetInt("GrainesMagiques", grainesMagiquesTotalesInstance);
+        PlayerPrefs.Save();
+    }
+
+    public static void ChargerGraines()
+    {
+        grainesMagiquesTotalesInstance = PlayerPrefs.GetInt("GrainesMagiques", 0);
+    }
+
     private IEnumerator AnimerTxtGrainesMagiques(int valeurCible)
     {
         float tempsEcoule = 0;
@@ -73,6 +85,7 @@ public class AffichageEcran : MonoBehaviour
 
         grainesMagiquesobtenues.text = valeurCible.ToString();
         menuPrincipalButton.interactable = true;
+        SauvegarderGraines();
     }
 
     public void DisplayFinalScoreAndGrainesMagiques()
@@ -102,13 +115,7 @@ public class AffichageEcran : MonoBehaviour
     {
         UpdateTimer();
 
-        if (Keyboard.current.uKey.wasPressedThisFrame)
-        {
-            UpdateScore(50);
-        }
-        if (Keyboard.current.iKey.wasPressedThisFrame)
-        {
-            UpdateScore(10);
-        }
+        if (Keyboard.current.uKey.wasPressedThisFrame) UpdateScore(50);
+        if (Keyboard.current.iKey.wasPressedThisFrame) UpdateScore(10);
     }
 }

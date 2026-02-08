@@ -1,17 +1,34 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
 
     public int slotIndex;
     public TextMeshProUGUI prixTexte;
+    public SkillData unlockableItem;
 
+    private Image imageIcon;
+
+    private AudioSource[] audioSource;
     private Color baseColor;
+
+    void Awake()
+    {
+        imageIcon = transform.GetChild(1).GetComponent<Image>();
+    }
 
     void Start()
     {
+        if (unlockableItem != null && slotIndex == unlockableItem.itemIndex && unlockableItem.estDebloquee)
+            gameObject.SetActive(true);
+        else if (unlockableItem != null && !unlockableItem.estDebloquee)
+            gameObject.SetActive(false);
+
+        audioSource = GetComponents<AudioSource>();
         baseColor = prixTexte.color;
 
         if (GraineManager.Instance != null)
@@ -19,27 +36,54 @@ public class ShopItem : MonoBehaviour
             int prix = GraineManager.Instance.hotbar.slots[slotIndex].prixAchat;
             prixTexte.text = prix + " Gold";
         }
+
+        float dureeAleatoire = Random.Range(1.5f, 2.5f);
+        float delaiAleatoire = Random.Range(0f, 1f);
+
+        imageIcon.GetComponent<RectTransform>().DOLocalMoveY(10f, dureeAleatoire).SetRelative(true).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetDelay(delaiAleatoire);
     }
 
-    public IEnumerator FlashPrixRouge()
+    public void SignalReussitePrix()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            prixTexte.color = Color.red;
-            yield return new WaitForSeconds(0.1f);
-            prixTexte.color = baseColor;
-            yield return new WaitForSeconds(0.1f);
-        }
+        prixTexte.transform.DOKill(true); 
+        prixTexte.DOKill(true);
+
+        prixTexte.DOColor(Color.green, 0.2f).OnComplete(() => {
+            prixTexte.DOColor(baseColor, 0.5f);
+        });
+        
+        prixTexte.transform.DOShakePosition(0.5f, 10f);
+    }
+
+    public void SignalErreurPrix()
+    {
+        prixTexte.transform.DOKill(true); 
+        prixTexte.DOKill(true);
+
+        prixTexte.DOColor(Color.red, 0.2f).OnComplete(() => {
+            prixTexte.DOColor(baseColor, 0.5f);
+        });
+        
+        prixTexte.transform.DOShakePosition(0.5f, 10f);
     }
 
     public void Acheter()
     {
         bool success = GraineManager.Instance.AcheterGraineParIndex(slotIndex);
 
-        if (!success)
+        if (success)
         {
-            StopAllCoroutines();
-            StartCoroutine(FlashPrixRouge());
+            audioSource[0].pitch = Random.Range(0.9f, 1.1f);
+            audioSource[0].Play();
+
+            SignalReussitePrix();
+        }
+        else
+        {
+            audioSource[1].pitch = Random.Range(0.9f, 1.1f);
+            audioSource[1].Play();
+
+            SignalErreurPrix();
         }
     }
 }

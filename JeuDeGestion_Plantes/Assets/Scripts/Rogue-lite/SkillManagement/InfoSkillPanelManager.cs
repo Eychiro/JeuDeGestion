@@ -20,14 +20,24 @@ public class InfoPanelManager : MonoBehaviour
 
     private SkillData skillActuel;
     private GameObject checkBoxActuelle;
+    private AudioSource audioSource;
 
     void Awake() => instance = this;
 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void AfficherDetails(SkillData data)
     {
+        DOTween.Kill("Skill_Name");
         skillActuel = data;
-        
+
         nomTxt.text = data.nom;
+        nomTxt.maxVisibleCharacters = 0;
+        DOTween.To(() => nomTxt.maxVisibleCharacters, x => nomTxt.maxVisibleCharacters = x, data.nom.Length, 1f).SetId("Skill_Name").SetEase(Ease.Linear);
+
         descTxt.text = data.description;
         prixTxt.text = "Coût : " + data.prixGraines;
 
@@ -90,11 +100,15 @@ public class InfoPanelManager : MonoBehaviour
     {
         if (AffichageEcran.grainesMagiquesTotalesInstance >= skillActuel.prixGraines)
         {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.Play();
+
             AffichageEcran.grainesMagiquesTotalesInstance -= skillActuel.prixGraines;
             skillActuel.estDebloquee = true;
             
             ActualiserBoutonAchat();
-            grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString(); 
+            grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
+            AffichageEcran.SauvegarderGraines();
         }
     }
 }

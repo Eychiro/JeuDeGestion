@@ -4,9 +4,14 @@ using UnityEngine.InputSystem;
 public class HotbarManager : MonoBehaviour
 {
     public int selectedSlot = 0;
-    
-    // On remplace GameObject[] par ton script GraineSlot
-    public Graine[] slots; 
+    public Graine[] slots;
+
+    private AudioSource audioSource;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Start()
     {
@@ -18,6 +23,7 @@ public class HotbarManager : MonoBehaviour
         if (context.performed)
         {
             Vector2 scrollVector = context.ReadValue<Vector2>();
+            audioSource.Play();
 
             if (scrollVector.y > 0)
             {

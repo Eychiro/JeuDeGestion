@@ -19,3 +19,4 @@ MonoBehaviour:
   valeurBonus: 1.1
   skillRequis: {fileID: 11400000, guid: f13e0ec7e6962c147bf313a46e9073f1, type: 2}
   estDebloquee: 0
+  itemIndex: 3

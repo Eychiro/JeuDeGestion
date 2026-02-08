@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class MenuManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class MenuManager : MonoBehaviour
     
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1.0f;
+    private AudioSource[] audioSources;
     
     public void ShowMenu()
     {
@@ -79,6 +81,8 @@ public class MenuManager : MonoBehaviour
 
     public void PlayButton()
     {
+        audioSources[1].Play();
+
         Cursor.lockState = CursorLockMode.Locked;
 
         StartCoroutine(StartGameFade(0, 1));
@@ -86,18 +90,30 @@ public class MenuManager : MonoBehaviour
 
     public void SkillTreeButton()
     {
+        audioSources[1].Play();
+
+        skillTreeMenu.transform.DOKill();
+        skillTreeMenu.transform.localScale = Vector3.zero;
+
         MainMenu.SetActive(false);
         skillTreeMenu.SetActive(true);
+        skillTreeMenu.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack);
     }
 
     public void RetourSkillTreeMenuButton()
     {
-        skillTreeMenu.SetActive(false);
-        MainMenu.SetActive(true);
+        audioSources[1].Play();
+
+        skillTreeMenu.transform.DOScale(0f, 0.2f).SetEase(Ease.InBack).OnComplete(() => {
+            MainMenu.SetActive(true);
+            skillTreeMenu.SetActive(false);
+        });
     }
 
     public void QuitterButton()
     {
+        audioSources[1].Play();
+
         Application.Quit();
     }
 
@@ -114,11 +130,14 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        audioSources = GetComponents<AudioSource>();
+
         if (!skipMainMenu)
         {
             StartCoroutine(LaunchGameFade(1, 0));
             ShowMenu();
 
+            AffichageEcran.ChargerGraines();
             grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
         }
         else
@@ -139,7 +158,16 @@ public class MenuManager : MonoBehaviour
         {
             AffichageEcran.grainesMagiquesTotalesInstance += 10;
             grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
+            AffichageEcran.SauvegarderGraines();
         }
+        
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            AffichageEcran.grainesMagiquesTotalesInstance = Mathf.Clamp(AffichageEcran.grainesMagiquesTotalesInstance - 10, 0, 1000);
+            grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
+            AffichageEcran.SauvegarderGraines();
+        }
+
 
     }
 }
