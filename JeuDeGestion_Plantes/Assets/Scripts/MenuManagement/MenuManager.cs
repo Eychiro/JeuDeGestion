@@ -20,9 +20,13 @@ public class MenuManager : MonoBehaviour
     public bool skipMainMenu = false;
     public TextMeshProUGUI grainesMagiquesMenuPrincipalTxt;
     public GameObject grainesMagiques;
+    public TextMeshProUGUI madeByTxt;
 
     [Header("SkillTreeMenu")]
     public GameObject skillTreeMenu;
+
+    [Header("MenuPause")]
+    public GameObject menuPause;
     
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1.0f;
@@ -34,49 +38,69 @@ public class MenuManager : MonoBehaviour
         cameraPlayer.SetActive(false);
     }
 
-    private IEnumerator LaunchGameFade(float startAlpha, float endAlpha)
+    private void LaunchGameFade(float startAlpha, float endAlpha)
     {
-        float elapsed = 0f;
+        foreach (Transform bouton in MainMenu.transform)
+            bouton.localScale = Vector3.zero;
+
         Color c = fadeImage.color;
+        fadeImage.color = new Color(c.r, c.g, c.b, startAlpha);
+        madeByTxt.alpha = 0;
+        madeByTxt.rectTransform.anchoredPosition = Vector2.zero;
 
-        yield return new WaitForSeconds(0.5f);
+        Sequence introSequence = DOTween.Sequence();
 
-        while (elapsed < fadeDuration)
+        introSequence.AppendInterval(0.5f).Append(madeByTxt.DOFade(1f, 2f)).Join(madeByTxt.rectTransform.DOShakePosition(2f, strength: 10f, vibrato: 15).SetRelative(true))
+            .Append(madeByTxt.DOFade(0f, 0.8f)).AppendInterval(0.3f);
+
+        float momentDebutFadeNoir = introSequence.Duration();
+        introSequence.Append(fadeImage.DOFade(endAlpha, fadeDuration).SetEase(Ease.Linear));
+        
+        float timingApparition = momentDebutFadeNoir + (fadeDuration * 0.5f); 
+        float boutonDelay = 0f;
+        foreach (Transform bouton in MainMenu.transform)
         {
-            elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / fadeDuration);
-            fadeImage.color = new Color(c.r, c.g, c.b, alpha);
-            yield return null;
+            introSequence.Insert(timingApparition + boutonDelay, bouton.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack));
+            boutonDelay += 0.1f;
         }
-        fadeImage.color = new Color(c.r, c.g, c.b, endAlpha);
+
+        introSequence.OnComplete(() => {
+            fadeImage.gameObject.SetActive(false);
+            madeByTxt.gameObject.SetActive(false);
+        });
     }
 
-    private IEnumerator StartGameFade(float startAlpha, float endAlpha)
+    private void StartGameFade(float startAlpha, float endAlpha)
     {
-        float elapsed = 0f;
         Color c = fadeImage.color;
+        fadeImage.color = new Color(c.r, c.g, c.b, startAlpha);
+        fadeImage.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.5f);
+        Sequence fadeSequence = DOTween.Sequence();
 
-        while (elapsed < fadeDuration)
-        {
-            elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / fadeDuration);
-            fadeImage.color = new Color(c.r, c.g, c.b, alpha);
-            yield return null;
-        }
-        fadeImage.color = new Color(c.r, c.g, c.b, endAlpha);
+        float boutonDelay = 0f;
         
-        cameraMainMenu.SetActive(false);
-        MainMenu.SetActive(false);
-        grainesMagiques.SetActive(false);
+        foreach (Transform bouton in MainMenu.transform)
+        {
+            fadeSequence.Insert(boutonDelay, bouton.DOScale(Vector3.zero, 0.4f).SetEase(Ease.InBack));
+            boutonDelay += 0.05f;
+        }
 
-        player.SetActive(true);
-        cameraPlayer.SetActive(true);
-        fadeImage.gameObject.SetActive(false);
-        donneesPlayer.SetActive(true);
+        fadeSequence.Insert(0.2f, fadeImage.DOFade(endAlpha, fadeDuration).SetEase(Ease.Linear));
 
-        yield return new WaitForSeconds(0.5f);
+        fadeSequence.OnComplete(() => {
+            MainMenu.SetActive(false);
+            grainesMagiques.SetActive(false);
+            cameraMainMenu.SetActive(false);
+            
+            player.SetActive(true);
+            cameraPlayer.SetActive(true);
+            
+            DOVirtual.DelayedCall(0.5f, () => { 
+                fadeImage.gameObject.SetActive(false);
+                donneesPlayer.SetActive(true);
+            });
+        });
     }
 
     public void PlayButton()
@@ -85,7 +109,7 @@ public class MenuManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        StartCoroutine(StartGameFade(0, 1));
+        StartGameFade(0, 1);
     }
 
     public void SkillTreeButton()
@@ -120,7 +144,8 @@ public class MenuManager : MonoBehaviour
     public void RetourMainMenu()
     {
         string sceneActuelle = SceneManager.GetActiveScene().name;
-        
+
+        audioSources[1].Play();        
         PlayerMovement.canMove = true;
 
         AffichageEcran.instance.GetTotalGrainesMagiques();
@@ -129,13 +154,94 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(sceneActuelle);
     }
 
+    public void SetMenuPause()
+    {
+        if (menuPause.activeSelf)
+        {
+            PauseReprendreButton();
+        }
+        else
+        {
+            menuPause.SetActive(true);
+            PlayerMovement.canMove = false;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+
+            foreach (Transform enfant in menuPause.transform)
+            {
+                if (enfant.GetComponent<Button>() != null)
+                    enfant.localScale = Vector3.zero;
+            }
+
+            float delay = 0f;
+            foreach (Transform enfant in menuPause.transform)
+            {
+                if (enfant.GetComponent<Button>() != null)
+                {
+                    enfant.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).SetDelay(delay).SetUpdate(true);
+                    delay += 0.1f;
+                }
+            }
+        }
+    }
+
+    public void PauseReprendreButton()
+    {
+        float delay = 0f;
+        float dureeAnimation = 0.3f;
+        int nombreDeBoutons = 0;
+
+        audioSources[1].Play();
+        Cursor.lockState = CursorLockMode.Locked;
+
+        foreach (Transform enfant in menuPause.transform)
+        {
+            if (enfant.GetComponent<Button>() != null)
+            {
+                nombreDeBoutons++;
+                enfant.DOScale(Vector3.zero, dureeAnimation).SetEase(Ease.InBack).SetDelay(delay).SetUpdate(true);
+                delay += 0.05f;
+            }
+        }
+
+        float tempsTotal = (nombreDeBoutons * 0.05f) + dureeAnimation;
+
+        DOVirtual.DelayedCall(tempsTotal, () => {
+            menuPause.SetActive(false);
+            PlayerMovement.canMove = true;
+            Time.timeScale = 1;
+        }).SetUpdate(true);
+    }
+
+    public void PauseMenuPrincipalButton()
+    {
+        string sceneActuelle = SceneManager.GetActiveScene().name;
+        
+        audioSources[1].Play();
+        PlayerMovement.canMove = true;
+        Time.timeScale = 1;
+
+        SceneManager.LoadScene(sceneActuelle);
+
+        // MainMenu.SetActive(true);
+
+        // Sequence introSequence = DOTween.Sequence();
+        // float boutonDelay = 0f;
+
+        // foreach (Transform bouton in MainMenu.transform)
+        // {
+        //     introSequence.Insert(0 + boutonDelay, bouton.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack));
+        //     boutonDelay += 0.1f;
+        // }
+    }
+
     void Start()
     {
         audioSources = GetComponents<AudioSource>();
 
         if (!skipMainMenu)
         {
-            StartCoroutine(LaunchGameFade(1, 0));
+            LaunchGameFade(1, 0);
             ShowMenu();
 
             AffichageEcran.ChargerGraines();
@@ -168,5 +274,8 @@ public class MenuManager : MonoBehaviour
             grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
             AffichageEcran.SauvegarderGraines();
         }
+
+        if (Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.pKey.wasPressedThisFrame)
+            SetMenuPause();
     }
 }
