@@ -124,6 +124,7 @@ public class MenuManager : MonoBehaviour
         PlayerMovement.canMove = true;
 
         AffichageEcran.instance.GetTotalGrainesMagiques();
+        AffichageEcran.SauvegarderGraines();
 
         SceneManager.LoadScene(sceneActuelle);
     }
@@ -167,7 +168,5 @@ public class MenuManager : MonoBehaviour
             grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
             AffichageEcran.SauvegarderGraines();
         }
-
-
     }
 }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cc74e1ffd7d6d24fa2f1ede1d3d3486, type: 3}
-  m_Name: "3_Z\xE9phyr constant"
+  m_Name: 2_Frimeur amateur
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  nom: "Z\xE9phyr constant"
-  description: Augmente la vitesse du personnage de 10%.
-  prixGraines: 15
-  typeDeBonus: 4
-  valeurBonus: 1.1
-  skillRequis: {fileID: 11400000, guid: 16b9ec57e89e35c4caee877acfca5e54, type: 2}
+  nom: Frimeur amateur
+  description: "Permet de commencer la partie avec 15 pi\xE8ces en plus."
+  prixGraines: 10
+  typeDeBonus: 6
+  valeurBonus: 15
+  skillRequis: {fileID: 11400000, guid: 97204737a0aebe64fb4bd6f622093bc0, type: 2}
   estDebloquee: 0
-  itemIndex: 0
+  itemIndex: 3

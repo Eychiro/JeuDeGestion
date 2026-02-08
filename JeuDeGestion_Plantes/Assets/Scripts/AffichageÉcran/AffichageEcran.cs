@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,7 @@ public class AffichageEcran : MonoBehaviour
     public TextMeshProUGUI timerTimeText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreFinalText;
+    public TextMeshProUGUI bestScoreTxt;
     public TextMeshProUGUI grainesMagiquesobtenues;
     public Button menuPrincipalButton;
     public TextMeshProUGUI GrainesMagiquesMenuPrincipalTxt;
@@ -17,11 +19,13 @@ public class AffichageEcran : MonoBehaviour
     public static AffichageEcran instance;
     public static int grainesMagiquesTotalesInstance;
 
+    public GameObject setNewBestScore;
 
     private  ArgentManager argentManager;
     private RunPartieManager runPartieManager;
 
     private int totalScore = 0;
+    private static int bestScore = 0;
     private int totalGrainesMagiques = 0;
 
     void Awake()
@@ -29,8 +33,14 @@ public class AffichageEcran : MonoBehaviour
         instance = this;
 
         argentManager = GetComponent<ArgentManager>();
-        goldAmount.text = argentManager.playerMoney.ToString();
         runPartieManager = GetComponent<RunPartieManager>();
+
+        ChargerBestScore();
+    }
+
+    void Start()
+    {
+        goldAmount.text = argentManager.playerMoney.ToString();
     }
 
     public void UpdateMoney()
@@ -65,6 +75,29 @@ public class AffichageEcran : MonoBehaviour
         grainesMagiquesTotalesInstance = PlayerPrefs.GetInt("GrainesMagiques", 0);
     }
 
+    public static void SauvegarderBestScore()
+    {
+        PlayerPrefs.SetInt("ScoreTotal", bestScore);
+        PlayerPrefs.Save();
+    }
+
+    public static void ChargerBestScore()
+    {
+        bestScore = PlayerPrefs.GetInt("ScoreTotal", 0);
+    }
+
+    // pour supprimer le score de playtest
+    public static void ResetBestScore()
+    {
+        bestScore = 0;
+        PlayerPrefs.SetInt("ScoreTotal", 0);
+        PlayerPrefs.Save();
+
+        grainesMagiquesTotalesInstance = 0;
+        PlayerPrefs.SetInt("GrainesMagiques", 0);
+        PlayerPrefs.Save();
+    }
+
     private IEnumerator AnimerTxtGrainesMagiques(int valeurCible)
     {
         float tempsEcoule = 0;
@@ -85,12 +118,64 @@ public class AffichageEcran : MonoBehaviour
 
         grainesMagiquesobtenues.text = valeurCible.ToString();
         menuPrincipalButton.interactable = true;
-        SauvegarderGraines();
+    }
+
+    public void AnimerEnfantsBestScore()
+    {
+        foreach (Transform enfant in setNewBestScore.transform)
+        {
+            enfant.DOLocalRotate(new Vector3(0, 0, 5f), 1f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+            enfant.DOScale(1.1f, 0.8f).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo).SetDelay(Random.Range(0f, 0.5f));
+
+            TextMeshProUGUI texteEnfant = enfant.GetComponent<TextMeshProUGUI>();
+            
+            if (texteEnfant != null)
+            {
+                LaunchColorLoop(texteEnfant);
+            }
+        }
+    }
+
+    public void AnimerScoreFinal()
+    {
+        scoreFinalText.rectTransform.DOLocalRotate(new Vector3(0, 0, 5f), 1f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+    }
+
+    public void AnimerBestScore()
+    {
+        bestScoreTxt.transform.DOScale(1.1f, 0.8f).SetEase(Ease.InOutQuad).SetLoops(-1, LoopType.Yoyo).SetDelay(Random.Range(0f, 0.5f));
+        LaunchColorLoop(bestScoreTxt);
+    }
+
+    private void LaunchColorLoop(TextMeshProUGUI texte)
+    {
+        if (texte == null)
+            return;
+
+        Color couleurCible = Random.ColorHSV(0f, 1f, 0.5f, 1f, 0.8f, 1f);
+
+        texte.DOColor(couleurCible, Random.Range(0.5f, 1.5f)).SetEase(Ease.Linear).OnComplete(() => {
+            if (texte != null) LaunchColorLoop(texte);
+        }); 
     }
 
     public void DisplayFinalScoreAndGrainesMagiques()
     {
         scoreFinalText.text = totalScore.ToString();
+
+        if (totalScore > bestScore)
+        {
+            setNewBestScore.SetActive(true);
+            AnimerEnfantsBestScore();
+
+            bestScore = totalScore;
+
+            SauvegarderBestScore();
+        }
+
+        bestScoreTxt.text = bestScore.ToString();
+        AnimerBestScore();
+        AnimerScoreFinal();
 
         CalculateGrainesMagiques();
 
@@ -117,5 +202,25 @@ public class AffichageEcran : MonoBehaviour
 
         if (Keyboard.current.uKey.wasPressedThisFrame) UpdateScore(50);
         if (Keyboard.current.iKey.wasPressedThisFrame) UpdateScore(10);
+        if (Keyboard.current.rKey.wasPressedThisFrame) ResetBestScore();
+    }
+
+    private void OnDestroy()
+    {        
+        if (setNewBestScore != null)
+        {
+            bestScoreTxt.transform.DOKill(true);
+
+            setNewBestScore.transform.DOKill(true);
+            foreach (Transform enfant in setNewBestScore.transform)
+            {
+                enfant.DOKill(true);
+            }
+        }
+
+        if (scoreFinalText != null)
+        {
+            scoreFinalText.transform.DOKill(true);
+        }
     }
 }

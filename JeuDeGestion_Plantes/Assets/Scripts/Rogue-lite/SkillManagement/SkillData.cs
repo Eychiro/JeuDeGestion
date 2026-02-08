@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public enum TypeBonus { Argent, ReductionDeVitesseDePousse, TempsPartieSupplementaire, ReductionShopPrice, PlayerSpeed, UnlockableGraine }
+public enum TypeBonus { Argent, ReductionDeVitesseDePousse, TempsPartieSupplementaire, ReductionShopPrice, PlayerSpeed, UnlockableGraine, StartingMoney }
 
 [CreateAssetMenu(fileName = "NouveauSkill", menuName = "MonJeu/SkillData")]
 public class SkillData : ScriptableObject

@@ -40,7 +40,7 @@ public class ShopItem : MonoBehaviour
         float dureeAleatoire = Random.Range(1.5f, 2.5f);
         float delaiAleatoire = Random.Range(0f, 1f);
 
-        imageIcon.GetComponent<RectTransform>().DOLocalMoveY(10f, dureeAleatoire).SetRelative(true).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetDelay(delaiAleatoire);
+        imageIcon.rectTransform.DOLocalMoveY(10f, dureeAleatoire).SetRelative(true).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetDelay(delaiAleatoire);
     }
 
     public void SignalReussitePrix()
