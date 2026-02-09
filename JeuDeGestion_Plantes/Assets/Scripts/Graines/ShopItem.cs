@@ -23,7 +23,7 @@ public class ShopItem : MonoBehaviour
 
     void Start()
     {
-        if (unlockableItem != null && slotIndex == unlockableItem.itemIndex && unlockableItem.estDebloquee)
+        if (unlockableItem != null && unlockableItem.estDebloquee)
             gameObject.SetActive(true);
         else if (unlockableItem != null && !unlockableItem.estDebloquee)
             gameObject.SetActive(false);

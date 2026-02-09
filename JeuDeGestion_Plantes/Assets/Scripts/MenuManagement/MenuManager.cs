@@ -108,6 +108,7 @@ public class MenuManager : MonoBehaviour
         audioSources[1].Play();
 
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         StartGameFade(0, 1);
     }
@@ -165,6 +166,8 @@ public class MenuManager : MonoBehaviour
             menuPause.SetActive(true);
             PlayerMovement.canMove = false;
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             Time.timeScale = 0;
 
             foreach (Transform enfant in menuPause.transform)
@@ -193,6 +196,7 @@ public class MenuManager : MonoBehaviour
 
         audioSources[1].Play();
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         foreach (Transform enfant in menuPause.transform)
         {

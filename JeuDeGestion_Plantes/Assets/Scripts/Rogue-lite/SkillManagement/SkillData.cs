@@ -22,7 +22,4 @@ public class SkillData : ScriptableObject
 
     [Header("État")]
     public bool estDebloquee;
-
-    [Header("Index de l'Item")]
-    [Range(3, 8)] public int itemIndex;
 }
