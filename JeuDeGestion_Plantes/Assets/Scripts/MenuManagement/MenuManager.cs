@@ -250,6 +250,12 @@ public class MenuManager : MonoBehaviour
             cameraMainMenu.SetActive(false);
             MainMenu.SetActive(false);
             grainesMagiques.SetActive(false);
+            madeByTxt.gameObject.SetActive(false);
+            inGame = true;
+
+            player.SetActive(true);
+            cameraPlayer.SetActive(true);
+
 
             Cursor.lockState = CursorLockMode.Locked;
             donneesPlayer.SetActive(true);
