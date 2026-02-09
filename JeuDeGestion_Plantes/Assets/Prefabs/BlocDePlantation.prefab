@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlocDePlantation
   argentManager: {fileID: 0}
   affichageEcran: {fileID: 0}
+  interactionCollider: {fileID: 6164996372157150427}
   pointApparition: {fileID: 281743225942448155}
   estOccupe: 0
 --- !u!82 &5389803500375307430

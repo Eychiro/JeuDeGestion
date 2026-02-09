@@ -4,6 +4,7 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
 {
     public ArgentManager argentManager;
     public AffichageEcran affichageEcran;
+    public InteractionCollider interactionCollider;
 
     [Header("Paramètres de Plantation")]
     public Transform pointApparition;
@@ -48,7 +49,8 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
     }
 
     public void Interact() 
-    { 
-        PlanterGraine();
+    {
+        if (interactionCollider.joueurProche)
+            PlanterGraine();
     }
 }

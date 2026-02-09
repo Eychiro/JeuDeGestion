@@ -40,6 +40,7 @@ public class BoutiqueDeGraines : MonoBehaviour, IInteractible
         shop.transform.DOScale(0f, 0.2f).SetEase(Ease.InBack).OnComplete(() => {
             shop.SetActive(false);
         });
+
         interactionCollider.parler.SetActive(true);
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -47,7 +48,8 @@ public class BoutiqueDeGraines : MonoBehaviour, IInteractible
     }
 
     public void Interact() 
-    { 
-        OpenShop();
+    {
+        if (interactionCollider.joueurProche)
+            OpenShop();
     }
 }
