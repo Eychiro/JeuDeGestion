@@ -31,6 +31,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1.0f;
     private AudioSource[] audioSources;
+    private bool inGame = false;
     
     public void ShowMenu()
     {
@@ -40,6 +41,8 @@ public class MenuManager : MonoBehaviour
 
     private void LaunchGameFade(float startAlpha, float endAlpha)
     {
+        inGame = false;
+
         foreach (Transform bouton in MainMenu.transform)
             bouton.localScale = Vector3.zero;
 
@@ -99,6 +102,7 @@ public class MenuManager : MonoBehaviour
             DOVirtual.DelayedCall(0.5f, () => { 
                 fadeImage.gameObject.SetActive(false);
                 donneesPlayer.SetActive(true);
+                inGame = true;
             });
         });
     }
@@ -226,17 +230,6 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1;
 
         SceneManager.LoadScene(sceneActuelle);
-
-        // MainMenu.SetActive(true);
-
-        // Sequence introSequence = DOTween.Sequence();
-        // float boutonDelay = 0f;
-
-        // foreach (Transform bouton in MainMenu.transform)
-        // {
-        //     introSequence.Insert(0 + boutonDelay, bouton.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack));
-        //     boutonDelay += 0.1f;
-        // }
     }
 
     void Start()
@@ -279,7 +272,8 @@ public class MenuManager : MonoBehaviour
             AffichageEcran.SauvegarderGraines();
         }
 
-        if (Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.pKey.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame && inGame && !BoutiqueDeGraines.IsShopOpen || 
+            Keyboard.current.pKey.wasPressedThisFrame && inGame && !BoutiqueDeGraines.IsShopOpen)
             SetMenuPause();
     }
 }

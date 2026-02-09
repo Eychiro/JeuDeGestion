@@ -86,4 +86,9 @@ public class ShopItem : MonoBehaviour
             SignalErreurPrix();
         }
     }
+
+    void OnDestroy()
+    {
+        imageIcon.rectTransform.DOKill(true);
+    }
 }
