@@ -41,6 +41,7 @@ public class RunPartieManager : MonoBehaviour
         hotBar.SetActive(false);        
         MenuEndPartie.SetActive(true);
 
+
         AffichageEcran.instance.DisplayFinalScoreAndGrainesMagiques();
     }
 

@@ -64,7 +64,7 @@ public class InfoPanelManager : MonoBehaviour
             });
         }
     }
-    
+
     public void SetActiveCheckBox(GameObject checkedBox)
     {
         checkBoxActuelle = checkedBox;
