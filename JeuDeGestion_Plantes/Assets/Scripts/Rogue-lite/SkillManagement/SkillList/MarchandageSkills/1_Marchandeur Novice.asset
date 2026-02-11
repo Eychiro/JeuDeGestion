@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: 1_Marchandeur Novice
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Marchandeur Novice
-  description: "Permet de r\xE9duire le prix des graines dans le magasin de 10%.\n(Se
-    cumule avec Pousse rapide)"
+  description: "Permet de r\xE9duire le prix des graines dans le magasin de 10%."
+  descriptionSupplementaire: "Informations suppl\xE9mentaires"
   prixGraines: 5
   typeDeBonus: 3
   valeurBonus: 1.1
   skillRequis: {fileID: 0}
   estDebloquee: 0
-  itemIndex: 3

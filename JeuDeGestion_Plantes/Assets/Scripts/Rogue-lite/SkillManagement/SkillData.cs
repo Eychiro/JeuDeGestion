@@ -9,6 +9,7 @@ public class SkillData : ScriptableObject
     [Header("Infos de base")]
     public string nom;
     [TextArea] public string description;
+    [TextArea] public string descriptionSupplementaire;
     public int prixGraines;
     
     [Header("Type de compétence")]

@@ -48,6 +48,12 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
         }
     }
 
+    public void Setup(ArgentManager argentManagerRef, AffichageEcran affichageEcranRef)
+    {
+        argentManager = argentManagerRef;
+        affichageEcran = affichageEcranRef;
+    }
+
     public void Interact() 
     {
         if (interactionCollider.joueurProche)

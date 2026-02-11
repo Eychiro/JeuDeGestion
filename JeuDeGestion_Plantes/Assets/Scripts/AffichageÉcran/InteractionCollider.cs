@@ -36,4 +36,8 @@ public class InteractionCollider : MonoBehaviour
         }
     }
 
+    public void Setup(GameObject parlerRef)
+    {
+        parler = parlerRef;
+    }
 }

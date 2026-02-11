@@ -21,10 +21,5 @@ public class BoutonSkill : MonoBehaviour
         overlayFermeture.SetActive(true);
         InfoPanelManager.instance.SetActiveCheckBox(checkedBox);
         InfoPanelManager.instance.AfficherDetails(donneeDeCeSkill);
-
-        if (donneeDeCeSkill.typeDeBonus == TypeBonus.ReductionShopPrice || donneeDeCeSkill.typeDeBonus == TypeBonus.ReductionDeVitesseDePousse)
-            InfoPanelManager.instance.infoSupButton.SetActive(true);
-        else
-            InfoPanelManager.instance.infoSupButton.SetActive(false);
     }
 }
