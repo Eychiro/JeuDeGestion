@@ -27,6 +27,8 @@ public class MenuManager : MonoBehaviour
 
     [Header("MenuPause")]
     public GameObject menuPause;
+
+    public static bool alreadyPlayed = false;
     
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1.0f;
@@ -110,10 +112,11 @@ public class MenuManager : MonoBehaviour
     public void PlayButton()
     {
         audioSources[1].Play();
+        alreadyPlayed = true;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        
         StartGameFade(0, 1);
     }
 
@@ -238,11 +241,24 @@ public class MenuManager : MonoBehaviour
 
         if (!skipMainMenu)
         {
-            LaunchGameFade(1, 0);
-            ShowMenu();
+            if (!alreadyPlayed)
+            {
+                LaunchGameFade(1, 0);
+                ShowMenu();
 
-            AffichageEcran.ChargerGraines();
-            grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
+                AffichageEcran.ChargerGraines();
+                grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
+            }
+            else
+            {
+                ShowMenu();
+                fadeImage.gameObject.SetActive(false);
+                madeByTxt.gameObject.SetActive(false);
+                skillTreeMenu.SetActive(true);
+
+                AffichageEcran.ChargerGraines();
+                grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
+            }
         }
         else
         {
@@ -255,7 +271,6 @@ public class MenuManager : MonoBehaviour
 
             player.SetActive(true);
             cameraPlayer.SetActive(true);
-
 
             Cursor.lockState = CursorLockMode.Locked;
             donneesPlayer.SetActive(true);

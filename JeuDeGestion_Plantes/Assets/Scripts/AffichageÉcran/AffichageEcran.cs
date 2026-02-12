@@ -21,12 +21,20 @@ public class AffichageEcran : MonoBehaviour
 
     public GameObject setNewBestScore;
 
+    public GameObject moneyPopupPrefab;
+
+    [Header("UI Setup")]
+    public Transform scorePopupContainer;
+    public Transform moneyPopupContainer;
+
     private  ArgentManager argentManager;
     private RunPartieManager runPartieManager;
 
     private int totalScore = 0;
     private static int bestScore = 0;
     private int totalGrainesMagiques = 0;
+
+    private int lastMoney;
 
     void Awake()
     {
@@ -41,17 +49,81 @@ public class AffichageEcran : MonoBehaviour
     void Start()
     {
         goldAmount.text = argentManager.playerMoney.ToString();
+
+        lastMoney = argentManager.playerMoney;
     }
 
     public void UpdateMoney()
     {
-        goldAmount.text = argentManager.playerMoney.ToString();
+        int currentMoney = argentManager.playerMoney;
+        int gain = currentMoney - lastMoney;
+        
+        goldAmount.text = currentMoney.ToString();
+
+        if (gain != 0)
+        {
+            GameObject popup = Instantiate(moneyPopupPrefab, moneyPopupContainer);
+            TextMeshProUGUI popupText = popup.GetComponent<TextMeshProUGUI>();
+            CanvasGroup cg = popup.GetComponent<CanvasGroup>(); // Utilisation du CanvasGroup du Prefab
+            RectTransform rect = popup.GetComponent<RectTransform>();
+
+            if (gain > 0)
+            {
+                popupText.text = "+" + gain;
+                popupText.color = Color.yellow;
+            }
+            else
+            {
+                popupText.text = gain.ToString();
+                popupText.color = Color.red;
+            }
+
+            cg.alpha = 0;
+            popup.transform.localPosition = new Vector3(-30, 0, 0);
+
+            Sequence s = DOTween.Sequence();
+            
+            s.Append(popup.transform.DOLocalMoveX(0, 0.4f).SetEase(Ease.OutBack));
+            s.Join(cg.DOFade(1, 0.4f));
+
+            s.AppendInterval(1f);
+
+            s.Append(popup.transform.DOLocalMoveX(100, 0.5f).SetEase(Ease.InQuad));
+            s.Join(cg.DOFade(0, 0.5f));
+
+            s.OnComplete(() => Destroy(popup));
+        }
+
+        lastMoney = currentMoney;
     }
 
     public void UpdateScore(int amountGiven)
     {
         totalScore += amountGiven;
         scoreText.text = "Score : " + totalScore.ToString();
+        scoreText.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.2f);
+
+        GameObject popup = Instantiate(moneyPopupPrefab, scorePopupContainer);
+        TextMeshProUGUI popupText = popup.GetComponent<TextMeshProUGUI>();
+        CanvasGroup cg = popup.GetComponent<CanvasGroup>();
+
+        popupText.text = "+" + amountGiven;
+        popupText.color = Color.green;
+        cg.alpha = 0;
+
+        popup.transform.localPosition = new Vector3(-50, 0, 0);
+
+        Sequence s = DOTween.Sequence();
+
+        s.Append(popup.transform.DOLocalMoveX(0, 0.4f).SetEase(Ease.OutBack));
+        s.Join(cg.DOFade(1, 0.4f));
+
+        s.AppendInterval(0.8f);
+
+        s.Append(popup.transform.DOLocalMoveX(100, 0.5f).SetEase(Ease.InQuad));
+        s.Join(cg.DOFade(0, 0.5f));
+
+        s.OnComplete(() => Destroy(popup));
     }
 
     public void CalculateGrainesMagiques()
