@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: "C\xE9l\xE9rit\xE9 Sup\xE9rieure"
   description: Augmente la vitesse du personnage de 10%.
-  prixGraines: 20
+  descriptionSupplementaire: 
+  prixGraines: 8
   typeDeBonus: 4
   valeurBonus: 1.1
   skillRequis: {fileID: 11400000, guid: f35a76df184829645b39321e1263d943, type: 2}
   estDebloquee: 0
-  itemIndex: 0

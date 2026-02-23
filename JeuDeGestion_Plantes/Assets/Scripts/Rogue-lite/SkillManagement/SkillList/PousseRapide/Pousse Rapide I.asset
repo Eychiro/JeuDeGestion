@@ -15,7 +15,7 @@ MonoBehaviour:
   nom: Pousse Rapide I
   description: "R\xE9duit le temps de pousse de toutes les plantes de 2 secondes."
   descriptionSupplementaire: "Informations suppl\xE9mentaires"
-  prixGraines: 5
+  prixGraines: 6
   typeDeBonus: 1
   valeurBonus: 2
   skillRequis: {fileID: 0}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: "Foul\xE9e L\xE9g\xE8re"
   description: Augmente la vitesse du personnage de 5%.
-  prixGraines: 5
+  descriptionSupplementaire: 
+  prixGraines: 2
   typeDeBonus: 4
   valeurBonus: 1.05
   skillRequis: {fileID: 0}

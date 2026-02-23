@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Petit pauvre
   description: "Permet de commencer la partie avec 10 pi\xE8ces en plus."
-  prixGraines: 5
+  descriptionSupplementaire: 
+  prixGraines: 3
   typeDeBonus: 6
   valeurBonus: 10
   skillRequis: {fileID: 0}
   estDebloquee: 0
-  itemIndex: 3

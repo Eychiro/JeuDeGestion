@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Sucre Rapide
   description: "D\xE9bloque l'achat de graines de Fraise dans la boutique."
-  prixGraines: 15
+  descriptionSupplementaire: 
+  prixGraines: 8
   typeDeBonus: 5
   valeurBonus: 2
   skillRequis: {fileID: 11400000, guid: 84d9f39a8e9d0af409673e02a174c417, type: 2}
   estDebloquee: 0
-  itemIndex: 5

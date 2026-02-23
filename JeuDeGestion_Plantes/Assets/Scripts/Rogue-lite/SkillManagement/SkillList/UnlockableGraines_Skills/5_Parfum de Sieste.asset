@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Parfum de Sieste
   description: "D\xE9bloque l'achat de graines de Lavande dans la boutique."
-  prixGraines: 25
+  descriptionSupplementaire: 
+  prixGraines: 14
   typeDeBonus: 5
   valeurBonus: 2
   skillRequis: {fileID: 11400000, guid: a2864bb9ca24fd04ea0325982aba4a3d, type: 2}
   estDebloquee: 0
-  itemIndex: 7

@@ -19,7 +19,7 @@ public class SpawnRdmBlocDePlantation : MonoBehaviour
 
             GameObject blocDePlantation = Instantiate(prefabBlocDePlantation, selectedPosition.position, Quaternion.identity);
             blocDePlantation.GetComponent<BlocDePlantation>().Setup(argentManager, affichageEcran);
-            blocDePlantation.transform.GetChild(2).GetComponent<InteractionCollider>().Setup(parlerCollider);
+            blocDePlantation.transform.GetChild(1).GetComponent<InteractionCollider>().Setup(parlerCollider);
 
             totalRdmPositions--;
             RdmPosition.Remove(selectedPosition);

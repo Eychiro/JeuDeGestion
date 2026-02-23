@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Bonus d'argent I
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Bonus d'argent I
-  description: Permet d'augmenter le gain d'argent de 20%.
+  description: Permet d'augmenter le gain d'argent de 10%.
+  descriptionSupplementaire: 
   prixGraines: 5
   typeDeBonus: 0
-  valeurBonus: 1.2
+  valeurBonus: 1.1
   skillRequis: {fileID: 0}
   estDebloquee: 0
-  itemIndex: 3

@@ -281,7 +281,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Keyboard.current.yKey.wasPressedThisFrame)
         {
-            AffichageEcran.grainesMagiquesTotalesInstance += 10;
+            AffichageEcran.grainesMagiquesTotalesInstance += 5;
             grainesMagiquesMenuPrincipalTxt.text = AffichageEcran.grainesMagiquesTotalesInstance.ToString();
             AffichageEcran.SauvegarderGraines();
         }
@@ -296,5 +296,11 @@ public class MenuManager : MonoBehaviour
         if (Keyboard.current.escapeKey.wasPressedThisFrame && inGame && !BoutiqueDeGraines.IsShopOpen || 
             Keyboard.current.pKey.wasPressedThisFrame && inGame && !BoutiqueDeGraines.IsShopOpen)
             SetMenuPause();
+
+        if (Keyboard.current.pKey.wasPressedThisFrame) 
+        {
+            PlayerPrefs.DeleteAll();
+            Debug.Log("Sauvegardes effacées !");
+        }
     }
 }

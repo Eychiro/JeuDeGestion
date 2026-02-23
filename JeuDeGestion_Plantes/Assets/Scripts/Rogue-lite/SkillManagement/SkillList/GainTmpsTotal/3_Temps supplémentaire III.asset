@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: "Temps suppl\xE9mentaire III"
   description: Augmente le temps total de la partie de 10 secondes.
-  prixGraines: 15
+  descriptionSupplementaire: 
+  prixGraines: 6
   typeDeBonus: 2
   valeurBonus: 10
   skillRequis: {fileID: 11400000, guid: 268a22ee98118e949965e759428efeb2, type: 2}
   estDebloquee: 0
-  itemIndex: 3

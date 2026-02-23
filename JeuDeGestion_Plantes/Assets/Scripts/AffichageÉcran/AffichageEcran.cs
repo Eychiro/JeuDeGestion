@@ -64,7 +64,7 @@ public class AffichageEcran : MonoBehaviour
         {
             GameObject popup = Instantiate(moneyPopupPrefab, moneyPopupContainer);
             TextMeshProUGUI popupText = popup.GetComponent<TextMeshProUGUI>();
-            CanvasGroup cg = popup.GetComponent<CanvasGroup>(); // Utilisation du CanvasGroup du Prefab
+            CanvasGroup cg = popup.GetComponent<CanvasGroup>();
             RectTransform rect = popup.GetComponent<RectTransform>();
 
             if (gain > 0)
@@ -144,6 +144,12 @@ public class AffichageEcran : MonoBehaviour
 
     public static void ChargerGraines()
     {
+        if (!PlayerPrefs.HasKey("GrainesMagiques"))
+        {
+            PlayerPrefs.SetInt("GrainesMagiques", 5);
+            PlayerPrefs.Save();
+        }
+
         grainesMagiquesTotalesInstance = PlayerPrefs.GetInt("GrainesMagiques", 0);
     }
 

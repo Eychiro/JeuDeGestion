@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Plein Soleil
   description: "D\xE9bloque l'achat de Tournesol dans la boutique."
-  prixGraines: 20
+  descriptionSupplementaire: 
+  prixGraines: 11
   typeDeBonus: 5
   valeurBonus: 2
   skillRequis: {fileID: 11400000, guid: 88da78b0e2054e346be0c7d6916909f3, type: 2}
   estDebloquee: 0
-  itemIndex: 6

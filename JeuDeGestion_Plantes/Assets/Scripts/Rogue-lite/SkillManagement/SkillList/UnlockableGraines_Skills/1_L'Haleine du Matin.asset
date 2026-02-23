@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: L'Haleine du Matin
   description: "D\xE9bloque l'achat de graines d'Oignon dans la boutique."
-  prixGraines: 5
+  descriptionSupplementaire: 
+  prixGraines: 3
   typeDeBonus: 5
   valeurBonus: 2
   skillRequis: {fileID: 0}

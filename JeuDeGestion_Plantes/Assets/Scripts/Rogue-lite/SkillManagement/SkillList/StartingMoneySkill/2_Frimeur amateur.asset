@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Frimeur amateur
   description: "Permet de commencer la partie avec 15 pi\xE8ces en plus."
-  prixGraines: 10
+  descriptionSupplementaire: 
+  prixGraines: 5
   typeDeBonus: 6
   valeurBonus: 15
   skillRequis: {fileID: 11400000, guid: 97204737a0aebe64fb4bd6f622093bc0, type: 2}
   estDebloquee: 0
-  itemIndex: 3

@@ -51,7 +51,7 @@ public class Graine : MonoBehaviour
 
     public float CalculerTempsMaturation()
     {
-        return (prixAchat * 0.5f) - ReductionGrowthTime;
+        return prixAchat - ReductionGrowthTime;
     }
 
     public int CalculerGainFinMaturation()

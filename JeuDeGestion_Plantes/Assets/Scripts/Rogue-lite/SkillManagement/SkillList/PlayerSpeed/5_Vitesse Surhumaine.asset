@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Vitesse Surhumaine
   description: Augmente la vitesse du personnage de 15%.
-  prixGraines: 25
+  descriptionSupplementaire: 
+  prixGraines: 12
   typeDeBonus: 4
   valeurBonus: 1.15
   skillRequis: {fileID: 11400000, guid: 7836a517c14fa7846931c36775e36a52, type: 2}
   estDebloquee: 0
-  itemIndex: 0

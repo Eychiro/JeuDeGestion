@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Prouveur originel
   description: "Permet de commencer la partie avec 25 pi\xE8ces en plus."
-  prixGraines: 15
+  descriptionSupplementaire: 
+  prixGraines: 8
   typeDeBonus: 6
   valeurBonus: 25
   skillRequis: {fileID: 11400000, guid: 06ffd3e833a392243bce630e1d123e15, type: 2}
   estDebloquee: 0
-  itemIndex: 3

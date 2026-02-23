@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Pain sur la Planche
   description: "D\xE9bloque l'achat de graines de Bl\xE9 dans la boutique."
-  prixGraines: 10
+  descriptionSupplementaire: 
+  prixGraines: 5
   typeDeBonus: 5
   valeurBonus: 2
   skillRequis: {fileID: 11400000, guid: 9ca8b32af02d42f4ba81b6a9323955ea, type: 2}
   estDebloquee: 0
-  itemIndex: 4

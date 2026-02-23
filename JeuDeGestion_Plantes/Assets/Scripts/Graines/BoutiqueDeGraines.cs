@@ -49,7 +49,7 @@ public class BoutiqueDeGraines : MonoBehaviour, IInteractible
 
     public void Interact() 
     {
-        if (interactionCollider.joueurProche)
+        if (interactionCollider.joueurProche && !IsShopOpen)
             OpenShop();
     }
 }

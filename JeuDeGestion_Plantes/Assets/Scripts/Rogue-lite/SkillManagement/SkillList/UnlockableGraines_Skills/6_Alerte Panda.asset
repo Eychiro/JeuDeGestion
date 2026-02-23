@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: Alerte Panda
   description: "D\xE9bloque l'achat de graines de Bamboo dans la boutique."
-  prixGraines: 30
+  descriptionSupplementaire: 
+  prixGraines: 20
   typeDeBonus: 5
   valeurBonus: 2
   skillRequis: {fileID: 11400000, guid: 6e86f559167c31e4ea5ada9de879d4d0, type: 2}
   estDebloquee: 0
-  itemIndex: 8

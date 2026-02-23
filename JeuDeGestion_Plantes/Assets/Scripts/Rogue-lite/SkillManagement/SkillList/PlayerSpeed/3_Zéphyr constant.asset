@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   nom: "Z\xE9phyr constant"
   description: Augmente la vitesse du personnage de 10%.
-  prixGraines: 15
+  descriptionSupplementaire: 
+  prixGraines: 6
   typeDeBonus: 4
   valeurBonus: 1.1
   skillRequis: {fileID: 11400000, guid: 16b9ec57e89e35c4caee877acfca5e54, type: 2}
   estDebloquee: 0
-  itemIndex: 0
