@@ -1,6 +1,4 @@
 using UnityEngine;
-using TMPro;
-using JetBrains.Annotations;
 using System.Collections.Generic;
 
 public class RunPartieManager : MonoBehaviour

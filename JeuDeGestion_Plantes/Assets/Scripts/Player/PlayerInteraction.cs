@@ -22,9 +22,9 @@ public class PlayerInteraction : MonoBehaviour
         Debug.DrawRay(rayOrigin, rayDirection * interactDistance, Color.green, 2f);
 
         // le "~" permet d'ignorer le layer en question, donc j'ignore "Ignore Raycast"
-        int layerMaskToIgnore = ~LayerMask.GetMask("Ignore Raycast");
+        int layerMaskToIgnore = LayerMask.GetMask("InteractLayer");
 
-        if (Physics.Raycast(rayOrigin, rayDirection, out hit, interactDistance, layerMaskToIgnore))
+        if (Physics.Raycast(rayOrigin, rayDirection, out hit, interactDistance, layerMaskToIgnore, QueryTriggerInteraction.Collide))
         {
             IInteractible interactible = hit.collider.GetComponentInParent<IInteractible>();
 

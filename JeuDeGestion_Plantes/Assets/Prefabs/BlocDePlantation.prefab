@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3123458245893105267}
   - component: {fileID: 2070359162316249153}
   - component: {fileID: 3919687047458534555}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: InteractionCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2984521012547088686}
   - component: {fileID: 5764309319462992110}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CollisionSupp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 434340012037974599}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EmplacementPlante
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6971557600239212774}
   - component: {fileID: 8355014952489861799}
   - component: {fileID: 5073183330950912039}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlocDePlantation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,6 +355,10 @@ PrefabInstance:
     - target: {fileID: 973240189808728582, guid: 1e088a939cb0a9d4190141c3aca3c887, type: 3}
       propertyPath: m_Name
       value: BlocDePlantation
+      objectReference: {fileID: 0}
+    - target: {fileID: 973240189808728582, guid: 1e088a939cb0a9d4190141c3aca3c887, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
