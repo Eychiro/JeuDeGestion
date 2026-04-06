@@ -18,19 +18,44 @@ public class HotbarManager : MonoBehaviour
         UpdateUI();
     }
 
+    void Update()
+    {
+        CheckAlphaNumericKeys();
+    }
+
+    private void CheckAlphaNumericKeys()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            Key key = (Key)((int)Key.Digit1 + i);
+            
+            if (Keyboard.current[key].wasPressedThisFrame)
+            {
+                if (selectedSlot != i)
+                {
+                    selectedSlot = i;
+                    audioSource.Play();
+                    UpdateUI();
+                }
+                break;
+            }
+        }
+    }
+
     public void OnScroll(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             Vector2 scrollVector = context.ReadValue<Vector2>();
-            audioSource.Play();
-
+            
             if (scrollVector.y > 0)
             {
+                audioSource.Play();
                 ChangeSlot(-1);
             }
             else if (scrollVector.y < 0)
             {
+                audioSource.Play();
                 ChangeSlot(1);
             }
         }
@@ -52,13 +77,11 @@ public class HotbarManager : MonoBehaviour
         {
             if (slots[i] != null && slots[i].highlight != null)
             {
-                // On active le highlight de l'objet GraineSlot si c'est le bon index
                 slots[i].highlight.SetActive(i == selectedSlot);
             }
         }
     }
 
-    // Petite fonction bonus pour récupérer la graine active ailleurs (ex: plantation)
     public Graine GetSelectedSlot()
     {
         return slots[selectedSlot];

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   valeur: 10
   sonRamassage: {fileID: 8300000, guid: def144aadae3e604f99b00875fed0436, type: 3}
+  particleRamassage: {fileID: 6666364121858327937, guid: bbb272eb9f9c95443b8ce649b06ba55c, type: 3}
 --- !u!65 &981238572757525723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,5 +176,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.5, y: 1, z: 1.2}
+  m_Size: {x: 16, y: 1, z: 2.3}
   m_Center: {x: 0, y: 0, z: 0}

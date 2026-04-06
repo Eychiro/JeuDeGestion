@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class BlocDePlantation : MonoBehaviour, IInteractible
 {
@@ -12,10 +13,12 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
     [HideInInspector] public bool estOccupe = false;
 
     private AudioSource sonPlantation;
+    private VisualEffect _vfxPlantation;
 
     void Start()
     {
         sonPlantation = GetComponent<AudioSource>();
+        _vfxPlantation = GetComponent<VisualEffect>();
     }
 
     public void PlanterGraine()
@@ -32,6 +35,9 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
         {
             sonPlantation.pitch = Random.Range(0.9f, 1.1f);
             sonPlantation.Play();
+
+            _vfxPlantation.enabled = true;
+            _vfxPlantation.Play();
 
             float angleY = Random.Range(0f, 360f);
             Quaternion randomRotationY = Quaternion.Euler(0f, angleY, 0f);
