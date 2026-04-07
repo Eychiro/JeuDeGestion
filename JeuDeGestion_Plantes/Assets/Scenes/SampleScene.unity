@@ -251,7 +251,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 56dc39bdd9952c84a8e3f7a76b748d61, type: 2}
   checkedBox: {fileID: 131068197}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &16380187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,7 +599,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 321179a62ef0d474abd7d73abf5e8f91, type: 2}
   checkedBox: {fileID: 902570846}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &31610003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3540,7 +3546,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 84d9f39a8e9d0af409673e02a174c417, type: 2}
   checkedBox: {fileID: 1881359796}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &190004626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6062,7 +6071,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: eb735ea8369f5854db266b8fdf11b24d, type: 2}
   checkedBox: {fileID: 1834141996}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &332807901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6212,7 +6224,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: c32bae8fb1506544aa607d12554e1ba4, type: 2}
   checkedBox: {fileID: 1030482833}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &333817456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6499,7 +6514,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 97204737a0aebe64fb4bd6f622093bc0, type: 2}
   checkedBox: {fileID: 367065858}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &339975501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7636,7 +7654,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 7fd35e4439548424a82382277ef5b050, type: 2}
   checkedBox: {fileID: 1551019202}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &399331882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9332,7 +9353,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 641f2ccd800ccd4449cefd2d606a69ee, type: 2}
   checkedBox: {fileID: 928451338}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &521922301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9426,6 +9450,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521922298}
+  m_CullTransparentMesh: 1
+--- !u!1 &521982989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521982990}
+  - component: {fileID: 521982992}
+  - component: {fileID: 521982991}
+  m_Layer: 5
+  m_Name: BackgroundInformations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &521982990
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521982989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1566031316}
+  m_Father: {fileID: 841777498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &521982991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521982989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &521982992
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521982989}
   m_CullTransparentMesh: 1
 --- !u!1 &528997165
 GameObject:
@@ -11772,7 +11872,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 6e86f559167c31e4ea5ada9de879d4d0, type: 2}
   checkedBox: {fileID: 1962709146}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &755665031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13744,6 +13847,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838794073}
   m_CullTransparentMesh: 1
+--- !u!1 &841777497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841777498}
+  m_Layer: 5
+  m_Name: SkillNameInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &841777498
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841777497}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 521982990}
+  m_Father: {fileID: 1965916630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -138}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &843433775
 GameObject:
   m_ObjectHideFlags: 0
@@ -15554,6 +15693,7 @@ GameObject:
   - component: {fileID: 966332371}
   - component: {fileID: 966332372}
   - component: {fileID: 966332373}
+  - component: {fileID: 966332374}
   m_Layer: 5
   m_Name: DonneesJoueur
   m_TagString: Untagged
@@ -15608,6 +15748,9 @@ MonoBehaviour:
   moneyPopupPrefab: {fileID: 7785217322581601911, guid: 919f35e50d125104c8bc6c8888b4b30b, type: 3}
   scorePopupContainer: {fileID: 874181213}
   moneyPopupContainer: {fileID: 212639709}
+  warningColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.2
+  numberOfFlashes: 3
 --- !u!114 &966332372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15652,6 +15795,104 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29e756e4a1af0c344935bc1cf7ec17fe, type: 2}
   - {fileID: 11400000, guid: 6dcd5b58943a7fa4fa601b03019248b2, type: 2}
   - {fileID: 11400000, guid: 7fd35e4439548424a82382277ef5b050, type: 2}
+  warningTimer: {fileID: 966332374}
+--- !u!82 &966332374
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966332369}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 5994ea433b93f88479d5c8df8ad33b74, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &967405263
 GameObject:
   m_ObjectHideFlags: 0
@@ -15848,7 +16089,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 7836a517c14fa7846931c36775e36a52, type: 2}
   checkedBox: {fileID: 756310690}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &980263134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16166,7 +16410,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 6dcd5b58943a7fa4fa601b03019248b2, type: 2}
   checkedBox: {fileID: 996857420}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &985063534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17170,7 +17417,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 58f022c4a7e48a24d9df00b9dff01e5f, type: 2}
   checkedBox: {fileID: 1478178062}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!1001 &1038600219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17994,7 +18244,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: f35a76df184829645b39321e1263d943, type: 2}
   checkedBox: {fileID: 1613295040}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1090926532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19437,7 +19690,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 88da78b0e2054e346be0c7d6916909f3, type: 2}
   checkedBox: {fileID: 65449452}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1158522419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20295,7 +20551,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: efda1af9487987540999956e6b4d97b5, type: 2}
   checkedBox: {fileID: 122114701}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1199283310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20942,7 +21201,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: beacee86508e71a448aa16ea32b2434c, type: 2}
   checkedBox: {fileID: 615944089}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1259984052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21869,7 +22131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 9ca8b32af02d42f4ba81b6a9323955ea, type: 2}
   checkedBox: {fileID: 1195847151}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1336452906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22513,7 +22778,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: a2864bb9ca24fd04ea0325982aba4a3d, type: 2}
   checkedBox: {fileID: 237565918}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1384592837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23212,7 +23480,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: dd92c54e273e83a4f8b201e4909b9190, type: 2}
   checkedBox: {fileID: 1573723934}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1403564328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24648,7 +24919,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 3c3c84d75c4a2a547b923e0e3ef0cfe1, type: 2}
   checkedBox: {fileID: 1023905054}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1516064285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25901,6 +26175,143 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563882964}
   m_CullTransparentMesh: 1
+--- !u!1 &1566031315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1566031316}
+  - component: {fileID: 1566031318}
+  - component: {fileID: 1566031317}
+  m_Layer: 5
+  m_Name: NameSkillHover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1566031316
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566031315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 521982990}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 600, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1566031317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566031315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Skill Name
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1566031318
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566031315}
+  m_CullTransparentMesh: 1
 --- !u!1 &1572495889
 GameObject:
   m_ObjectHideFlags: 0
@@ -25956,7 +26367,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 268a22ee98118e949965e759428efeb2, type: 2}
   checkedBox: {fileID: 1294962149}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1572495892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26293,7 +26707,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 5e24360f1343996439d22cc14b33d9b7, type: 2}
   checkedBox: {fileID: 1624027728}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1574280684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26776,7 +27193,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 06ffd3e833a392243bce630e1d123e15, type: 2}
   checkedBox: {fileID: 1474432176}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1600349963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28002,7 +28422,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: feac6d1638608a744a1033329911f23b, type: 2}
   checkedBox: {fileID: 956341818}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1672597692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28385,7 +28808,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 16b9ec57e89e35c4caee877acfca5e54, type: 2}
   checkedBox: {fileID: 1415707621}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1681858508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30545,7 +30971,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 29e756e4a1af0c344935bc1cf7ec17fe, type: 2}
   checkedBox: {fileID: 511636378}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1784577731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31472,7 +31901,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 12a9f72c2844249488d6412705caae29, type: 2}
   checkedBox: {fileID: 1363306647}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1825753493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34013,6 +34445,7 @@ RectTransform:
   - {fileID: 450483389}
   - {fileID: 1397742106}
   - {fileID: 827493938}
+  - {fileID: 841777498}
   - {fileID: 1519784243}
   m_Father: {fileID: 1388876912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34076,7 +34509,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: 6fa5ec9f0fd8a8b469ffbcaf673f58b8, type: 2}
   checkedBox: {fileID: 2008653828}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &1966786763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35330,7 +35766,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoutonSkill
   donneeDeCeSkill: {fileID: 11400000, guid: f13e0ec7e6962c147bf313a46e9073f1, type: 2}
   checkedBox: {fileID: 1314822137}
+  skillNameInfo: {fileID: 841777497}
+  skillName: {fileID: 1566031317}
   overlayFermeture: {fileID: 1397742105}
+  offset: {x: 0, y: 50}
 --- !u!114 &2047435936
 MonoBehaviour:
   m_ObjectHideFlags: 0

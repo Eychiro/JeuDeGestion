@@ -27,6 +27,12 @@ public class AffichageEcran : MonoBehaviour
     public Transform scorePopupContainer;
     public Transform moneyPopupContainer;
 
+    public Color warningColor = Color.red;
+    public float flashDuration = 0.2f;
+    public int numberOfFlashes = 3;
+
+    private Color originalColor;
+
     private  ArgentManager argentManager;
     private RunPartieManager runPartieManager;
 
@@ -51,6 +57,8 @@ public class AffichageEcran : MonoBehaviour
         goldAmount.text = argentManager.playerMoney.ToString();
 
         lastMoney = argentManager.playerMoney;
+
+        originalColor = timerTimeText.color;
     }
 
     public void UpdateMoney()
@@ -272,6 +280,20 @@ public class AffichageEcran : MonoBehaviour
         int seconds = Mathf.FloorToInt(runPartieManager.remainingGameTime % 60);
 
         timerTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void WarningTimer()
+    {
+        timerTimeText.DOKill();
+
+        Sequence s = DOTween.Sequence();
+
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            s.Append(timerTimeText.DOColor(warningColor, flashDuration));
+            s.Join(timerTimeText.transform.DOPunchScale(Vector3.one * 0.2f, flashDuration * numberOfFlashes));
+            s.Append(timerTimeText.DOColor(originalColor, flashDuration));
+        }
     }
 
     void Update()

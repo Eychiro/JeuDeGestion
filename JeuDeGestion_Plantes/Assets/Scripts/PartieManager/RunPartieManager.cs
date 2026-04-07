@@ -8,8 +8,10 @@ public class RunPartieManager : MonoBehaviour
     public BoutiqueDeGraines boutiqueDeGraines;
     public GameObject hotBar;
     public List<SkillData> skillBoost;
+    public AudioSource warningTimer;
 
     private float bonusSkill = 0;
+    private bool _animationCritique = false;
 
     void Start()
     {
@@ -53,6 +55,14 @@ public class RunPartieManager : MonoBehaviour
         {
             remainingGameTime = 0;
             EndActualGame();
+        }
+
+        if (remainingGameTime < 60 && !_animationCritique)
+        {
+            _animationCritique = true;
+            warningTimer.Play();
+
+            AffichageEcran.instance.WarningTimer();
         }
     }
 }
