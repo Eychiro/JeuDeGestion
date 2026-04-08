@@ -13,6 +13,9 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
     [HideInInspector] public bool estOccupe = false;
     [HideInInspector] public bool ButterfliesEvent = false;
 
+    private float _bonusButterflies = 0.8f;
+    private int _malusButterflies = 10;
+
     private AudioSource sonPlantation;
     private VisualEffect _vfxPlantation;
 
@@ -49,9 +52,17 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
             Plante scriptPlante = nouvellePlante.GetComponent<Plante>();
             
             if (scriptPlante != null)
-            {            
-                scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation();
-                scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation();
+            {
+                if (!ButterfliesEvent)
+                {
+                    scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation();
+                    scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation();
+                }
+                else
+                {
+                    scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation() * _bonusButterflies;
+                    scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation() - _malusButterflies;
+                }
             }
             estOccupe = true;
         }
@@ -78,6 +89,7 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
             if (timerButterfliesEvent > 30f)
             {
                 ButterfliesEvent = false;
+                timerButterfliesEvent = 0f;
             }
         }
     }

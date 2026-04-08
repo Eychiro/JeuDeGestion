@@ -22,5 +22,16 @@ public class SkillData : ScriptableObject
     public SkillData skillRequis;
 
     [Header("État")]
-    public bool estDebloquee;
+    public bool estDebloquee
+    {
+        get 
+        {
+            return PlayerPrefs.GetInt("Skill_" + nom, 0) == 1;
+        }
+        set 
+        {
+            PlayerPrefs.SetInt("Skill_" + nom, value ? 1 : 0);
+            PlayerPrefs.Save();
+        }
+    }
 }
