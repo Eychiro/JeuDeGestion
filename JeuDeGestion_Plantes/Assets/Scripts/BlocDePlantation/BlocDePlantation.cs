@@ -11,9 +11,12 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
     public Transform pointApparition;
 
     [HideInInspector] public bool estOccupe = false;
+    [HideInInspector] public bool ButterfliesEvent = false;
 
     private AudioSource sonPlantation;
     private VisualEffect _vfxPlantation;
+
+    private float timerButterfliesEvent = 0f;
 
     void Start()
     {
@@ -64,5 +67,18 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
     {
         if (interactionCollider.joueurProche)
             PlanterGraine();
+    }
+
+    void Update()
+    {
+        if (ButterfliesEvent)
+        {
+            timerButterfliesEvent += Time.deltaTime;
+
+            if (timerButterfliesEvent > 30f)
+            {
+                ButterfliesEvent = false;
+            }
+        }
     }
 }
