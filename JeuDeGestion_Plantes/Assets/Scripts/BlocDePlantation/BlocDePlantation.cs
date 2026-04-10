@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -13,13 +14,14 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
     [HideInInspector] public bool estOccupe = false;
     [HideInInspector] public bool ButterfliesEvent = false;
 
-    private float _bonusButterflies = 0.8f;
-    private int _malusButterflies = 10;
+    [HideInInspector] public float _bonusButterflies;
+    [HideInInspector] public float _malusButterflies;
 
     private AudioSource sonPlantation;
     private VisualEffect _vfxPlantation;
 
     private float timerButterfliesEvent = 0f;
+    [HideInInspector] public bool _isBonus = true;
 
     void Start()
     {
@@ -60,10 +62,39 @@ public class BlocDePlantation : MonoBehaviour, IInteractible
                 }
                 else
                 {
-                    scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation() * _bonusButterflies;
-                    scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation() - _malusButterflies;
+                    if (_isBonus)
+                    {
+                        float bonus = _bonusButterflies;
+
+                        if (bonus < 1.0f) 
+                        {
+                            scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation() * bonus;
+                            scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation();
+                        }
+                        else 
+                        {
+                            scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation();
+                            scriptPlante.gainFinal = scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation() + Mathf.RoundToInt(bonus); 
+                        }
+                    }
+                    else
+                    {
+                        float malus = _malusButterflies;
+
+                        if (malus < 2.0f) 
+                        {
+                            scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation() * malus;
+                            scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation();
+                        }
+                        else 
+                        {
+                            scriptPlante.tempsTotal = graineChoisie.CalculerTempsMaturation();
+                            scriptPlante.gainFinal = scriptPlante.gainFinal = graineChoisie.CalculerGainFinMaturation() - Mathf.RoundToInt(malus); 
+                        }
+                    }
                 }
             }
+
             estOccupe = true;
         }
     }

@@ -28,8 +28,6 @@ public class TxtFollowplayer : MonoBehaviour
 
         float distance = Vector3.Distance(mainCameraTransform.position, transform.position);
 
-        Debug.Log(distance);
-
         if (distance <= detectionDistance)
         {
             if (!isShown)
